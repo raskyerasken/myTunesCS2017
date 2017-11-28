@@ -5,9 +5,13 @@
  */
 package mytunes.BLL;
 
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.media.MediaPlayer;
+import mytunes.BE.myTunes;
+import mytunes.DAL.myTunesDAL;
+import mytunes.GUI.AddSongController;
 import static sun.audio.AudioPlayer.player;
 
 /**
@@ -16,5 +20,16 @@ import static sun.audio.AudioPlayer.player;
  */
 public class BLLManager 
 {
+    
+    myTunesDAL mtdal = new myTunesDAL();
+   
+    public List<AddSongController> getAllSongs(String songName, String Artist, String Album, int Year){
+        return mtdal.getAllSongs();
+    }
+    
+    public List<AddSongController> getAllSongsByPlaylist(String songName, String Artist, String Album, int Year)
+    {
+        return mtdal.getAllSongsByPlaylist(songName, Artist, Album, 0);
+    }
 }
 
