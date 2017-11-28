@@ -9,6 +9,8 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.media.MediaPlayer;
+import mytunes.DAL.myTunesDAL;
+import mytunes.GUI.AddSongController;
 import static sun.audio.AudioPlayer.player;
 
 /**
@@ -17,26 +19,19 @@ import static sun.audio.AudioPlayer.player;
  */
 public class BLLManager 
 {
-    
-    public class BLLManager {
-    PrisonerDAO pdao = new PrisonerDAO();
-    
-    public List<Prisoner> getAllPrisoners() {
-        return pdao.getAllPrisoners();
-    }
-    public List<Prisoner> getAllPrisonersByNationality(
-             String nationality) {
-        return pdao.getAllPrisonersByNationality(nationality);
-    }        
-
-    public void remove(Prisoner selectedPrisoner) {
-        pdao.remove(selectedPrisoner);
+    myTunesDAL mtdal = new myTunesDAL();
+   
+    public List<AddSongController> getAllSongs(String songName, String Artist, String Album, int Year){
+        return mtdal.getAllSongs(songName, Artist, Album, 0);
     }
     
-    public void add(Prisoner prisoner)
+    myTunesDAL mtdal = new myTunesDAL(); 
+   
+    
+    public List<AddSongController> getAllSongsByPlaylist(String songName, String Artist, String Album, int Year)
     {
-        pdao.add(prisoner);
+        return mtdal.getAllSongsByPlaylist(songName, Artist, Album, 0);
     }
-}
+    
 }
 
