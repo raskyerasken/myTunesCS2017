@@ -9,6 +9,7 @@ package mytunes.BLL;
  *
  * @author mr.Andersen
  */
-public class BLLManager {
+public class BLLManager 
+{
     
 }

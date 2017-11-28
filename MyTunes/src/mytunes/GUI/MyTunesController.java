@@ -20,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.MediaPlayer;
 
 
 /**
@@ -58,13 +59,8 @@ public class MyTunesController implements Initializable {
     private ImageView nextBtn;
     @FXML
     private ImageView pauseBtn;
-    
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-        
-        // hej med dig
-    }
+    private MediaPlayer player;
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -107,8 +103,21 @@ public class MyTunesController implements Initializable {
     }
 
 
-    private void play(ActionEvent event) throws FileNotFoundException, IOException  {
-   }
+    @FXML
+    private void playBtn() 
+    {
+        System.out.println("lalal");
+        if(player != null) {
+            boolean playing = player.getStatus().equals(MediaPlayer.Status.PLAYING);
+            if(playing) {
+                player.pause();
+                System.out.println("lol");
+            } else {
+                player.play();
+                System.out.println("lolz");
+            }
+        }
+    }
 
 
     @FXML
