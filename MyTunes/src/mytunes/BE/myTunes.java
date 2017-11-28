@@ -15,6 +15,55 @@ import mytunes.GUI.AddSongController;
  */
 public class myTunes {
     
+    private String songName;
+    private String artist;
+    private String album;
+    private int year;
+    
+    public String getSongName()
+    {
+        return songName;
+    }
+    
+    public void setSongName()
+    {
+        this.songName = songName;
+    }
+    
+    public String getArtist()
+    {
+        return artist;
+    }
+    public void setArtist()
+    {
+        this.artist = artist;
+    }
+    
+    public String getAlbum()
+    {
+        return album;
+    }
+    
+    public void setAlbum()
+    {
+        this.album = album;
+    }
+    
+    public int getYear()
+    {
+        return year;
+    }
+    
+    public void setYear(){
+        this.year = year;
+           
+    }
+
+    @Override
+    public String toString() {
+        return "myTunes{" + "songName=" + songName + ", artist=" + artist + ", album=" + album + ", year=" + year + '}';
+    }
+
     
     
 }

@@ -5,6 +5,7 @@
  */
 package mytunes.BLL;
 
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.media.MediaPlayer;
@@ -16,5 +17,26 @@ import static sun.audio.AudioPlayer.player;
  */
 public class BLLManager 
 {
+    
+    public class BLLManager {
+    PrisonerDAO pdao = new PrisonerDAO();
+    
+    public List<Prisoner> getAllPrisoners() {
+        return pdao.getAllPrisoners();
+    }
+    public List<Prisoner> getAllPrisonersByNationality(
+             String nationality) {
+        return pdao.getAllPrisonersByNationality(nationality);
+    }        
+
+    public void remove(Prisoner selectedPrisoner) {
+        pdao.remove(selectedPrisoner);
+    }
+    
+    public void add(Prisoner prisoner)
+    {
+        pdao.add(prisoner);
+    }
+}
 }
 
