@@ -73,7 +73,7 @@ public class MyTunesController implements Initializable {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
         
-        // hej
+        // hej med dig
     }
     
     @Override
