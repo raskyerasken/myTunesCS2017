@@ -68,6 +68,14 @@ public class MyTunesController implements Initializable {
     private TableColumn<?, ?> listSongCategory;
     @FXML
     private TableColumn<?, ?> listSongTime;
+    @FXML
+    private ImageView playBtn;
+    @FXML
+    private ImageView backBtn;
+    @FXML
+    private ImageView nextBtn;
+    @FXML
+    private ImageView pauseBtn;
     
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
@@ -95,17 +103,6 @@ public class MyTunesController implements Initializable {
     private void deletePlaylist(ActionEvent event) {
     }
 
-    @FXML
-    private void upPlaylistSongs(ActionEvent event) {
-    }
-
-    @FXML
-    private void downPlaylistSongs(ActionEvent event) {
-    }
-
-    @FXML
-    private void addSongToPlaylist(ActionEvent event) {
-    }
 
     @FXML
     private void deleteSongOnPlaylist(ActionEvent event) {
@@ -127,9 +124,6 @@ public class MyTunesController implements Initializable {
     private void closeProgram(ActionEvent event) {
     }
 
-    @FXML
-    private void songBeforeOnPlaylist(ActionEvent event) {
-    }
 
     private void play(ActionEvent event) throws FileNotFoundException, IOException  {
       
@@ -141,16 +135,21 @@ public class MyTunesController implements Initializable {
         MD= BGM.getData();
         loop = new ContinuousAudioDataStream(MD);    }
 
-    @FXML
-    private void nextSongOnPlaylist(ActionEvent event) {
-    }
 
     @FXML
     private void play(MouseEvent event) {
     }
 
     @FXML
-    private void play(DragEvent event) {
+    private void lastSong(MouseEvent event) {
+    }
+
+    @FXML
+    private void pause(MouseEvent event) {
+    }
+
+    @FXML
+    private void nextSong(MouseEvent event) {
     }
     
 }
