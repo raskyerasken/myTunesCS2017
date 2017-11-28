@@ -8,6 +8,7 @@ package mytunes.GUI;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -38,7 +39,7 @@ public class MyTunesController implements Initializable {
     
     private Label label;
     @FXML
-    private ListView<?> ListSongPlaylist;
+    private ListView<String> ListSongPlaylist ;
     @FXML
     private Label labelSongTheirIsPlaying;
     @FXML
@@ -74,7 +75,7 @@ public class MyTunesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         playlist= FXCollections.observableArrayList();
-     
+    ListSongPlaylist.setItems(playlist);
     }    
 
     @FXML
@@ -181,6 +182,13 @@ public class MyTunesController implements Initializable {
     private void nextSong(MouseEvent event) {
         System.out.println("next");
     }
+    public void newSong(String title, String artist, String time, String file)
+    {
+       
+        playlist.add(title);
+        
+}
+    
  
     
     
