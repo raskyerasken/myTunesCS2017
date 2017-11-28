@@ -5,10 +5,46 @@
  */
 package mytunes.DAL;
 
+import java.util.ArrayList;
+import java.util.List;
+import mytunes.GUI.AddSongController;
+
 /**
  *
  * @author mr.Andersen
  */
-public class myTunesDAL {
+public class myTunesDAL 
+{
+        private ConnectionManager cm = new ConnectionManager();
+
+        public List<AddSongController> getAllSongsByPlaylist(String songName, String Artist, String Album, int Year)
+        {
+            List<AddSongController> allSongs = new ArrayList();
+        
     
+        {
+            AddSongController s = new AddSongController();
+            allSongs.add(s);
+        }
+        
+        return allSongs;
+    }
+    
+    public List<AddSongController> getAllSongs(String songName, String Artist, String Album, int Year)
+    {
+        List<AddSongController> allSongs = new ArrayList();
+        {
+            AddSongController s = new AddSongController();
+            allSongs.add(s);
+            
+        }
+        return allSongs;
+    }
+    
+    public void remove(AddSongController selectedSong)
+    {
+        String sql = "DELETE FROM Songs WHERE id=?";
+        
+    }
 }
+
