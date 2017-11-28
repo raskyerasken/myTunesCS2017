@@ -40,7 +40,8 @@ public class SongViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    private void clickAddSong(ActionEvent event) {
+    @FXML
+    private void save(ActionEvent event) {
         myTunes allSongs = new myTunes();
         allSongs.setSongName(textTitle.getText());
         allSongs.setArtist(textArtist.getText());
@@ -49,11 +50,8 @@ public class SongViewController implements Initializable {
         int year = Integer.parseInt(textYear.getText());
         allSongs.setYear(year);
         
-        model.
+        
     }
 
-    @FXML
-    private void save(ActionEvent event) {
-    }
     
 }

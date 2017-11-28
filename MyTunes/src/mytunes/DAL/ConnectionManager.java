@@ -7,23 +7,23 @@ package mytunes.DAL;
 
 
 
-//import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
-//import com.microsoft.sqlserver.jdbc.SQLServerException;
+import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 
 /**
  *
  * @author kasper
- */
+// */
 public class ConnectionManager {
-    private SQLServerDataSource ds = new SQLServerDataSource();
+    private final SQLServerDataSource ds = new SQLServerDataSource();
     public ConnectionManager() {
-        ds.setDatabaseName("CS2017A_39_PRISON");
-        ds.setUser("CS2017A_39_java");
+        ds.setDatabaseName("CS2017B_17_bestTunes");
+        ds.setUser("CS2017B_17_java");
         ds.setPassword("javajava");
         ds.setPortNumber(1433);
         ds.setServerName("10.176.111.31");
-    }
+ }
     
     public Connection getConnection() throws SQLServerException
     {

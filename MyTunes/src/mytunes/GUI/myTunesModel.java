@@ -5,6 +5,7 @@
  */
 package mytunes.GUI;
 
+import java.sql.SQLException;
 import java.util.prefs.Preferences;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -29,7 +30,8 @@ public class myTunesModel
     private StringProperty artist;
     private StringProperty year;
     private StringProperty title;
-    BLLManager bllmanager = new BLLManager();
+    private BLLManager bllmanager = new BLLManager();
+    private ObservableList<myTunes> sList = FXCollections.observableArrayList();
     
     
     private Media tune;
@@ -116,10 +118,9 @@ public class myTunesModel
         this.tune = tune;
     }
     
-    public void add(myTunes allSongs) {
+    public void add(myTunes allSongs) throws SQLException {
         bllmanager.add(allSongs);
-        
-        .add(prisoner);
+        sList.add(allSongs);
     }
     
    

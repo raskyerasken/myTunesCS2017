@@ -14,11 +14,13 @@ import mytunes.GUI.AddSongController;
  * @author mr.Andersen
  */
 public class myTunes {
-    
+    List<AddSongController> allSongs = new ArrayList();
+
     private String songName;
     private String artist;
     private String album;
     private int year;
+    
     
     public String getSongName()
     {

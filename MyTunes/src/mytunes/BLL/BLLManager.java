@@ -5,6 +5,7 @@
  */
 package mytunes.BLL;
 
+import java.sql.SQLException;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,11 +33,11 @@ public class BLLManager
         return mtdal.getAllSongsByPlaylist(songName, Artist, Album, 0);
     }
     
-    public void remove (myTunes selectedSong) {
-        mtdal.remove(selectedSong);
-    }
+//    public void remove (myTunes selectedSong) {
+//        mtdal.remove(selectedSong);
+//    }
     
-    public void add(myTunesDAL allSongs)
+    public void add(myTunes allSongs) throws SQLException
     {
         mtdal.add(allSongs);
     }
