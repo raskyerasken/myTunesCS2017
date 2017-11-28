@@ -5,8 +5,13 @@
  */
 package mytunes.GUI;
 
+import java.util.prefs.Preferences;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
 import javafx.scene.media.Media;
 
 /**
@@ -15,12 +20,15 @@ import javafx.scene.media.Media;
  */
 public class myTunesModel 
 {
+
     private StringProperty fileName;
     private StringProperty path;
     private StringProperty album;
     private StringProperty artist;
     private StringProperty year;
     private StringProperty title;
+    
+    
     
     private Media tune;
     
@@ -106,8 +114,10 @@ public class myTunesModel
         this.tune = tune;
     }
     
+   
+
+    }
     
     
-    
-    
-}
+   
+     

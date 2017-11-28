@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,6 +22,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.MediaPlayer;
+import mytunes.BLL.BLLManager;
+import static sun.audio.AudioPlayer.player;
 
 
 /**
@@ -60,6 +63,7 @@ public class MyTunesController implements Initializable {
     @FXML
     private ImageView pauseBtn;
     private MediaPlayer player;
+    
 
     
     @Override
@@ -139,5 +143,7 @@ public class MyTunesController implements Initializable {
     private void nextSong(MouseEvent event) {
         System.out.println("next");
     }
+ 
+    
     
 }
