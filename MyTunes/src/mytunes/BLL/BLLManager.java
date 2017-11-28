@@ -24,10 +24,7 @@ public class BLLManager
     public List<AddSongController> getAllSongs(String songName, String Artist, String Album, int Year){
         return mtdal.getAllSongs(songName, Artist, Album, 0);
     }
-    
-    myTunesDAL mtdal = new myTunesDAL(); 
    
-    
     public List<AddSongController> getAllSongsByPlaylist(String songName, String Artist, String Album, int Year)
     {
         return mtdal.getAllSongsByPlaylist(songName, Artist, Album, 0);

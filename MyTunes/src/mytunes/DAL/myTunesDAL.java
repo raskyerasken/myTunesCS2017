@@ -23,7 +23,7 @@ import mytunes.GUI.AddSongController;
  *
  * @author mr.Andersen
  */
-¨
+
             
 public class myTunesDAL {
     private ConnectionManager cm = new ConnectionManager();
