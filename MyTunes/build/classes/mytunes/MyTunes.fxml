@@ -56,7 +56,7 @@
             <Image url="@../forward.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="33.0" fitWidth="61.0" layoutX="83.0" layoutY="6.0" onDragDropped="#play" onMouseClicked="#play">
+      <ImageView fx:id="play" fitHeight="33.0" fitWidth="61.0" layoutX="83.0" layoutY="6.0" onMouseClicked="#play">
          <image>
             <Image url="@../play-sign.png" />
          </image>

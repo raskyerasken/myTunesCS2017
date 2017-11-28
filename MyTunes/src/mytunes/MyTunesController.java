@@ -72,6 +72,8 @@ public class MyTunesController implements Initializable {
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
+        
+        // hej
     }
     
     @Override
