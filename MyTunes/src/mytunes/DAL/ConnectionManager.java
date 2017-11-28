@@ -6,13 +6,6 @@
 package mytunes.DAL;
 
 <<<<<<< HEAD
-import java.sql.Connection;
-//import com.microsoft.sqlserver.mytunes.SQLServerDataSource;
-//import com.microsoft.sqlserver.mytunes.SQLServerException;
-
-
-=======
-<<<<<<< HEAD
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
@@ -36,31 +29,11 @@ public class ConnectionManager {
         return ds.getConnection();
     }
 =======
->>>>>>> 23e6a653d6fb81595d7926982c0c07d7a1324c9b
 /**
  *
  * @author mr.Andersen
  */
-<<<<<<< HEAD
-public class ConnectionManager 
-{
-   /* private SQLServerDataSource ds = new SQLServerDataSource();
-    public ConnectionManager() 
-    {
-        ds.setDatabaseName("CS2017B_17_bestTunes");
-        ds.setUser("CS2017A_17_java");
-        ds.setPassword("javajava");
-        ds.setPortNumber(1433);
-        ds.setServerName("10.176.111.31");
-    }
-    
-    public Connection getConnection() throws SQLServerException
-    {
-        return ds.getConnection();
-    }*/
-=======
 public class ConnectionManager {
 >>>>>>> 6be0ddcd6ead80a6c93ccfdce69144edf23b446c
->>>>>>> 23e6a653d6fb81595d7926982c0c07d7a1324c9b
     
 }
