@@ -5,6 +5,7 @@
  */
 package mytunes.DAL;
 
+<<<<<<< HEAD
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
@@ -27,5 +28,12 @@ public class ConnectionManager {
     {
         return ds.getConnection();
     }
+=======
+/**
+ *
+ * @author mr.Andersen
+ */
+public class ConnectionManager {
+>>>>>>> 6be0ddcd6ead80a6c93ccfdce69144edf23b446c
     
 }
