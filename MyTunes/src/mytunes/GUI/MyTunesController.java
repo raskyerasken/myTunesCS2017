@@ -14,7 +14,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -22,6 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 import mytunes.BLL.BLLManager;
 import static sun.audio.AudioPlayer.player;
 
@@ -74,11 +78,33 @@ public class MyTunesController implements Initializable {
     }    
 
     @FXML
-    private void newPlaylist(ActionEvent event) {
+    private void newPlaylist(ActionEvent event) throws IOException {
+         Stage newStage = new Stage();
+            FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("playListView.fxml"));
+
+            Parent root = fxLoader.load();
+            PlayListController controller
+                    = fxLoader.getController();
+
+
+            Scene scene = new Scene(root);
+            newStage.setScene(scene);
+            newStage.show();
     }
 
     @FXML
-    private void editPlaylist(ActionEvent event) {
+    private void editPlaylist(ActionEvent event) throws IOException {
+         Stage newStage = new Stage();
+            FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("playListView.fxml"));
+
+            Parent root = fxLoader.load();
+            PlayListController controller
+                    = fxLoader.getController();
+
+
+            Scene scene = new Scene(root);
+            newStage.setScene(scene);
+            newStage.show();
     }
 
     @FXML
@@ -91,7 +117,19 @@ public class MyTunesController implements Initializable {
     }
 
     @FXML
-    private void newSong(ActionEvent event) {
+    private void newSong(ActionEvent event) throws IOException {
+         Stage newStage = new Stage();
+            FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("songView.fxml"));
+
+            Parent root = fxLoader.load();
+           SongViewController controller
+                    = fxLoader.getController();
+
+
+            Scene scene = new Scene(root);
+            newStage.setScene(scene);
+            newStage.show();
+       
     }
 
     @FXML
