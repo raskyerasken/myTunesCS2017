@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +21,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.MediaPlayer;
+import mytunes.BLL.BLLManager;
+import static sun.audio.AudioPlayer.player;
 
 
 /**
@@ -58,13 +62,9 @@ public class MyTunesController implements Initializable {
     private ImageView nextBtn;
     @FXML
     private ImageView pauseBtn;
+    private MediaPlayer player;
     
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-        
-        // hej med dig
-    }
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -107,8 +107,21 @@ public class MyTunesController implements Initializable {
     }
 
 
-    private void play(ActionEvent event) throws FileNotFoundException, IOException  {
-   }
+    @FXML
+    private void playBtn() 
+    {
+        System.out.println("lalal");
+        if(player != null) {
+            boolean playing = player.getStatus().equals(MediaPlayer.Status.PLAYING);
+            if(playing) {
+                player.pause();
+                System.out.println("lol");
+            } else {
+                player.play();
+                System.out.println("lolz");
+            }
+        }
+    }
 
 
     @FXML
@@ -130,5 +143,7 @@ public class MyTunesController implements Initializable {
     private void nextSong(MouseEvent event) {
         System.out.println("next");
     }
+ 
+    
     
 }

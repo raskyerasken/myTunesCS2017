@@ -64,5 +64,6 @@
             <Image url="@../../pause%20button.png" />
          </image>
       </ImageView>
+      <Button layoutX="197.0" layoutY="8.0" mnemonicParsing="false" onAction="#playBtn" text="Play" />
    </children>
 </AnchorPane>
