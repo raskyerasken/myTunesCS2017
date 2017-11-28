@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="490.0" prefWidth="756.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mytunes.GUI.MyTunesController">
+   <children>
+      <ListView fx:id="ListSongPlaylist" layoutX="237.0" layoutY="79.0" prefHeight="332.0" prefWidth="123.0" />
+      <Button layoutX="25.0" layoutY="413.0" mnemonicParsing="false" onAction="#newPlaylist" prefHeight="25.0" prefWidth="45.0" text="New" />
+      <Button layoutX="94.0" layoutY="413.0" mnemonicParsing="false" onAction="#editPlaylist" text="Edit" />
+      <Button layoutX="148.0" layoutY="413.0" mnemonicParsing="false" onAction="#deletePlaylist" text="Delete" />
+      <Button layoutX="231.0" layoutY="413.0" mnemonicParsing="false" onAction="#upPlaylistSongs" prefHeight="25.0" prefWidth="37.0" />
+      <Button layoutX="274.0" layoutY="413.0" mnemonicParsing="false" onAction="#downPlaylistSongs" prefHeight="25.0" prefWidth="37.0" />
+      <Button layoutX="364.0" layoutY="80.0" mnemonicParsing="false" onAction="#addSongToPlaylist" prefHeight="25.0" prefWidth="45.0" />
+      <Button layoutX="338.0" layoutY="413.0" mnemonicParsing="false" onAction="#deleteSongOnPlaylist" text="Delete" />
+      <Button layoutX="429.0" layoutY="413.0" mnemonicParsing="false" onAction="#newSong" text="New" />
+      <Button layoutX="473.0" layoutY="413.0" mnemonicParsing="false" onAction="#editSong" text="Edit" />
+      <Button layoutX="539.0" layoutY="413.0" mnemonicParsing="false" onAction="#DeleteSong" text="Delete" />
+      <Button layoutX="613.0" layoutY="413.0" mnemonicParsing="false" onAction="#closeProgram" text="Close" />
+      <Label layoutX="29.0" layoutY="62.0" text="Playlist" />
+      <Label layoutX="229.0" layoutY="62.0" text="Songs on playlist" />
+      <Label layoutX="433.0" layoutY="63.0" text="Songs" />
+      <Label fx:id="labelSongTheirIsPlaying" layoutX="268.0" layoutY="14.0" text="Play a song" />
+      <Label layoutX="551.0" layoutY="14.0" text="Filter" />
+      <TextField fx:id="textFieldFilter" layoutX="584.0" layoutY="10.0" prefHeight="25.0" prefWidth="81.0" />
+      <Button layoutX="668.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="27.0" />
+      <Button layoutX="54.0" layoutY="7.0" mnemonicParsing="false" onAction="#songBeforeOnPlaylist" prefHeight="33.0" prefWidth="33.0" style="-fx-background-radius: 050050050;" />
+      <Button layoutX="96.0" layoutY="6.0" mnemonicParsing="false" onDragOver="#play" prefHeight="33.0" prefWidth="33.0" style="-fx-background-radius: 50050050;" />
+      <Button layoutX="132.0" layoutY="7.0" mnemonicParsing="false" onAction="#nextSongOnPlaylist" prefHeight="33.0" prefWidth="33.0" style="-fx-background-radius: 050050050;" />
+      <Slider layoutX="43.0" layoutY="39.0" />
+      <ImageView layoutX="376.0" layoutY="82.0">
+         <image>
+            <Image url="@../back.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="13.0" layoutX="64.0" layoutY="15.0">
+         <image>
+            <Image url="@../backwards.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="284.0" layoutY="417.0">
+         <image>
+            <Image url="@../down.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="14.0" fitWidth="13.0" layoutX="142.0" layoutY="14.0">
+         <image>
+            <Image url="@../forward.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="play" fitHeight="33.0" fitWidth="61.0" layoutX="83.0" layoutY="6.0" onMouseClicked="#play">
+         <image>
+            <Image url="@../play-sign.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="673.0" layoutY="14.0">
+         <image>
+            <Image url="@../seach.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="240.0" layoutY="416.0">
+         <image>
+            <Image url="@../up.png" />
+         </image>
+      </ImageView>
+      <TableView layoutX="14.0" layoutY="80.0" prefHeight="325.0" prefWidth="205.0">
+        <columns>
+          <TableColumn fx:id="columName" prefWidth="82.0" text="Name" />
+          <TableColumn fx:id="columSongs" prefWidth="57.0" text="Songs" />
+            <TableColumn fx:id="colomTime" prefWidth="65.0" text="time" />
+        </columns>
+      </TableView>
+      <TableView layoutX="425.0" layoutY="82.0" prefHeight="325.0" prefWidth="320.0">
+        <columns>
+          <TableColumn fx:id="listSongTitle" prefWidth="94.0" text="Title" />
+          <TableColumn fx:id="listSongArtist" prefWidth="81.0" text="Artist" />
+            <TableColumn fx:id="listSongCategory" prefWidth="75.0" text="Category" />
+            <TableColumn fx:id="listSongTime" prefWidth="69.0" text="Time" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

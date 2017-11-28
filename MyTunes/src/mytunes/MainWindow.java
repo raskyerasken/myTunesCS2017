@@ -19,7 +19,7 @@ public class MainWindow extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MyTunes.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GUI/MyTunes.fxml"));
         
         Scene scene = new Scene(root);
         
