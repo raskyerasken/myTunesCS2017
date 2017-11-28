@@ -5,40 +5,22 @@
  */
 package mytunes.GUI;
 
-import java.awt.Image;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import sun.audio.AudioData;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
+
 
 /**
  *
@@ -126,30 +108,27 @@ public class MyTunesController implements Initializable {
 
 
     private void play(ActionEvent event) throws FileNotFoundException, IOException  {
-      
-   AudioPlayer MGP = AudioPlayer.player;
-   AudioStream BGM;
-   AudioData MD;
-        ContinuousAudioDataStream loop =null;
-        BGM= new AudioStream(new FileInputStream("jacob.mp3"));
-        MD= BGM.getData();
-        loop = new ContinuousAudioDataStream(MD);    }
+   }
 
 
     @FXML
     private void play(MouseEvent event) {
+        System.out.println("play");
     }
 
     @FXML
     private void lastSong(MouseEvent event) {
+        System.out.println("last");
     }
 
     @FXML
     private void pause(MouseEvent event) {
+        System.out.println("pause");
     }
 
     @FXML
     private void nextSong(MouseEvent event) {
+        System.out.println("next");
     }
     
 }
