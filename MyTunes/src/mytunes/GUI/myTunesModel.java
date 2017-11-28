@@ -13,6 +13,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
 import javafx.scene.media.Media;
+import mytunes.BE.myTunes;
+import mytunes.BLL.BLLManager;
 
 /**
  *
@@ -27,7 +29,7 @@ public class myTunesModel
     private StringProperty artist;
     private StringProperty year;
     private StringProperty title;
-    
+    BLLManager bllmanager = new BLLManager();
     
     
     private Media tune;
@@ -112,6 +114,12 @@ public class myTunesModel
     public void setTune(Media tune) 
     {
         this.tune = tune;
+    }
+    
+    public void add(myTunes allSongs) {
+        bllmanager.add(allSongs);
+        
+        .add(prisoner);
     }
     
    

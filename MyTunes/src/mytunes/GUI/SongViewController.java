@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import mytunes.BE.myTunes;
 
 /**
  * FXML Controller class
@@ -20,14 +21,18 @@ import javafx.scene.control.TextField;
 public class SongViewController implements Initializable {
 
     @FXML
-    private TextField textTime;
-    @FXML
     private TextField textTitle;
     @FXML
     private TextField textArtist;
     @FXML
     private TextField textFile;
+    @FXML
+    private TextField textAlbum;
+    @FXML
+    private TextField textYear;
 
+    
+    myTunesModel model = new myTunesModel();
     /**
      * Initializes the controller class.
      */
@@ -35,15 +40,20 @@ public class SongViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    private void clickAddSong(ActionEvent event) {
+        myTunes allSongs = new myTunes();
+        allSongs.setSongName(textTitle.getText());
+        allSongs.setArtist(textArtist.getText());
+        allSongs.setAlbum(textAlbum.getText());
+
+        int year = Integer.parseInt(textYear.getText());
+        allSongs.setYear(year);
+        
+        model.
+    }
 
     @FXML
     private void save(ActionEvent event) {
-        textTime.getText();
-        textTitle.getText();
-        textArtist.getText();
-        textFile.getText();
-        MyTunesController newsong= new MyTunesController();
-        newsong.newSong(textArtist.getText(),textTitle.getText(),textTime.getText(),textFile.getText());
     }
     
 }

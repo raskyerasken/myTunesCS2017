@@ -25,7 +25,7 @@ public class myTunes {
         return songName;
     }
     
-    public void setSongName()
+    public void setSongName(String songName)
     {
         this.songName = songName;
     }
@@ -34,7 +34,7 @@ public class myTunes {
     {
         return artist;
     }
-    public void setArtist()
+    public void setArtist(String Artist)
     {
         this.artist = artist;
     }
@@ -44,7 +44,7 @@ public class myTunes {
         return album;
     }
     
-    public void setAlbum()
+    public void setAlbum(String Album)
     {
         this.album = album;
     }
@@ -54,7 +54,7 @@ public class myTunes {
         return year;
     }
     
-    public void setYear(){
+    public void setYear(int Year){
         this.year = year;
            
     }
