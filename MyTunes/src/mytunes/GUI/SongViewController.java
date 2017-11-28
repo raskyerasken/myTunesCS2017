@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -17,6 +18,15 @@ import javafx.fxml.Initializable;
  * @author Kentg
  */
 public class SongViewController implements Initializable {
+
+    @FXML
+    private TextField textTime;
+    @FXML
+    private TextField textTitle;
+    @FXML
+    private TextField textArtist;
+    @FXML
+    private TextField textFile;
 
     /**
      * Initializes the controller class.
@@ -28,6 +38,12 @@ public class SongViewController implements Initializable {
 
     @FXML
     private void save(ActionEvent event) {
+        textTime.getText();
+        textTitle.getText();
+        textArtist.getText();
+        textFile.getText();
+        MyTunesController newsong= new MyTunesController();
+        newsong.newSong(textArtist.getText(),textTitle.getText(),textTime.getText(),textFile.getText());
     }
     
 }

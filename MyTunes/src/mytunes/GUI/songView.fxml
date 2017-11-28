@@ -15,11 +15,11 @@
       <ComboBox layoutX="93.0" layoutY="114.0" prefHeight="26.0" prefWidth="90.0" />
       <Button layoutX="207.0" layoutY="115.0" mnemonicParsing="false" text="More.." />
       <Label layoutX="50.0" layoutY="161.0" text="Time:" />
-      <TextField layoutX="93.0" layoutY="157.0" prefHeight="26.0" prefWidth="90.0" />
-      <TextField layoutX="93.0" layoutY="40.0" prefHeight="26.0" prefWidth="213.0" />
-      <TextField layoutX="93.0" layoutY="72.0" prefHeight="26.0" prefWidth="214.0" />
+      <TextField fx:id="textTime" layoutX="93.0" layoutY="157.0" prefHeight="26.0" prefWidth="90.0" />
+      <TextField fx:id="textTitle" layoutX="93.0" layoutY="40.0" prefHeight="26.0" prefWidth="213.0" />
+      <TextField fx:id="textArtist" layoutX="93.0" layoutY="72.0" prefHeight="26.0" prefWidth="214.0" />
       <Label layoutX="50.0" layoutY="193.0" text="File:" />
-      <TextField layoutX="93.0" layoutY="189.0" prefHeight="26.0" prefWidth="214.0" />
+      <TextField fx:id="textFile" layoutX="93.0" layoutY="189.0" prefHeight="26.0" prefWidth="214.0" />
       <Button layoutX="321.0" layoutY="190.0" mnemonicParsing="false" text="Choose.." />
       <Button layoutX="269.0" layoutY="231.0" mnemonicParsing="false" text="Cancel" />
       <Button layoutX="342.0" layoutY="231.0" mnemonicParsing="false" onAction="#save" text="Save" />
