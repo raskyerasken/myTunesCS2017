@@ -83,9 +83,15 @@ if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
         }
 	}
 
-    public String getdata() throws UnsupportedTagException, InvalidDataException, IOException, NotSupportedException {
+    public String[] getdata() throws UnsupportedTagException, InvalidDataException, IOException, NotSupportedException {
         choseFile();
-        return title+"\t"+artist +"\t"+album+"\t"+year; 
+        String[] songData= {artist,title,album,year};
+        return songData;
+    }
+
+    @Override
+    public String toString() {
+        return "TrackUtility{" + "title=" + title + ", artist=" + artist + ", album=" + album + ", year=" + year + '}';
     }
 }
     

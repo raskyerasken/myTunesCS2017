@@ -74,6 +74,14 @@ public class SongViewController implements Initializable {
     private void chooseDirectory(ActionEvent event) throws UnsupportedTagException, InvalidDataException, IOException, NotSupportedException {
          TrackUtility  choser= new TrackUtility();
         System.out.println(  choser.getdata());
+      /* String[] songData = choser.getdata();
+        System.out.println(songData);
+        textTitle.setText(songData[1]);
+        textArtist.setText(songData[0]);
+        textAlbum.setText(songData[2]);
+        textYear.setText(songData[3]);*/
+        
+        
     }
     }
 
