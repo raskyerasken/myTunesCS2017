@@ -5,17 +5,16 @@
  */
 package mytunes.BE;
 
-import java.io.File;
+import com.mpatric.mp3agic.ID3v2;
+import com.mpatric.mp3agic.InvalidDataException;
+import com.mpatric.mp3agic.Mp3File;
+import com.mpatric.mp3agic.NotSupportedException;
+import com.mpatric.mp3agic.UnsupportedTagException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.Arrays;
 import java.util.List;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.MapChangeListener;
-import javafx.collections.ObservableList;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.scene.media.Media;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -23,8 +22,11 @@ import javafx.scene.media.Media;
  */
 public class TrackUtility {
     
-    public static final List<String> SUPPORTED_FILE_EXTENSIONS = Arrays.asList(".mp3");
     
+    String  title ;
+    String artist;
+    String album;
+    String year ; 
     /**
      * Get all tracklists stored in user preferences
      *
@@ -32,113 +34,59 @@ public class TrackUtility {
      * @param trackTable
      * @return List
      */
-    public static ObservableList<myTunes> getAll(myTunes trackList, TableView trackTable) {
-        
-        ObservableList<myTunes> tracks = FXCollections.observableArrayList();
-        
-        File dir = new File(trackList.getPath().getValue());
-        if (!dir.exists() || !dir.isDirectory()) {
-            System.out.println("Cannot find audio source directory: " + dir + " please supply a directory as a command line argument");
-        }
-        
-        for (String file : dir.list((File dir1, String name) -> {
-            for(String ext : SUPPORTED_FILE_EXTENSIONS) {
-                if (name.endsWith(ext)) {
-                    return true;
-                }
-            }
-            return false;
-        }))
-        {
-            String fileURL = dir + "\\" + file;
-            String cleanURL = cleanURL(fileURL);
-            String mediaURL = "file:///" + cleanURL;
-            
-            myTunes track = new myTunes();
-            Media media = new Media(mediaURL);
-            media.getMetadata().addListener((MapChangeListener.Change<? extends String,
-                    ? extends Object> ch) -> {
-                if (ch.wasAdded()) {
-                    handleMetadata(ch.getKey(), ch.getValueAdded(), (myTunes) track);
-                    if(track.getArtist() == null || track.getArtist().getValue().equals("")) {
-                        track.setArtist(new String("Unknown"));
-                    }
-                    if(track.getAlbum() == null || track.getAlbum().getValue.equals("")) {
-                        track.setAlbum(new String("Unknown"));
-                    }
-                   
-                    if(track.getSongName() == null || track.getSongName().getValue().equals("")) {
-                        track.setSongName(new String(track.getSongName().getValue().replace(".mp3", "")));
-                    }
-                    TrackUtil.refreshTable(trackTable);
-                }
-            });
-            track.setMedia(media);
-            track.setFileName(new SimpleStringProperty(file));
-            track.setPath(new SimpleStringProperty(dir + "/" + file));
-            tracks.add(track);
-        }
+   private void choseFile() throws UnsupportedTagException, InvalidDataException, IOException, NotSupportedException {
+       JFileChooser chooser = new JFileChooser();
+chooser.setCurrentDirectory(new java.io.File("."));
+chooser.setDialogTitle("choosertitle");
 
-        return tracks;
-    }
-    
-    /**
-     * Extract all metadata information
-     * @param key
-     * @param value
-     * @param track
-     */
-    public static void handleMetadata(String key, Object value, myTunes track) {
-        //System.out.println(key + " - (" + value.toString() + ")");
-        if(key.equals("album")) {
-            if(value.toString().equals("")) {
-                track.setAlbum(new String("Unknown"));
-            } else {
-                track.setAlbum(new String(value.toString()));
-            }
-        } else if(key.equals("artist") || key.equals("album artist")) {
-            if(value.toString().equals("")) {
-                track.setArtist(new String("Unknown"));
-            } else {
-                track.setArtist(new String(value.toString()));
-            }
-        } else if(key.equals("SongName")) {
-            if(value.toString().equals("")) {
-                track.setSongName(new String(track.getSongName().replace(".mp3", "")));
-            } else {
-                track.setSongName(new String(value.toString()));
-            }
-        } 
+
+
+if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+ 
+  System.out.println("getSelectedFile() : " + chooser.getSelectedFile());
+} else {
+  System.out.println("No Selection ");
+}
+        
+        Mp3File mp3file = new Mp3File(chooser.getSelectedFile());
+
+        System.out.println("Length of this mp3 is: " + mp3file.getLengthInSeconds() + " seconds");
+      
+        System.out.println("Has ID3v2 tag?: " + (mp3file.hasId3v2Tag() ? "YES" : "NO"));
        
-    }
-    
-    /**
-     * Refresh table columns util
-     *
-     * @param table
-     */
-    public static void refreshTable(TableView table) {
-        for (int i = 0; i < table.getColumns().size(); i++) {
-            TableColumn tableColumn = ((TableColumn) (table.getColumns().get(i)));
-            if(tableColumn.isVisible()) {
-                tableColumn.setVisible(false);
-                tableColumn.setVisible(true);
+      if (mp3file.hasId3v2Tag()) {
+        	ID3v2 id3v2Tag = mp3file.getId3v2Tag();
+        	artist= id3v2Tag.getArtist();
+                title = id3v2Tag.getTitle();
+                album = id3v2Tag.getAlbum();
+                year = id3v2Tag.getYear();
+           /*     
+        	System.out.println("Artist: " + id3v2Tag.getArtist());
+        	System.out.println("Title: " + id3v2Tag.getTitle());
+        	System.out.println("Album: " + id3v2Tag.getAlbum());
+        	System.out.println("Year: " + id3v2Tag.getYear());
+        	System.out.println("Genre: " + id3v2Tag.getGenre() + " (" + id3v2Tag.getGenreDescription() + ")");*/
+        	
+        }
+        
+        if (mp3file.hasId3v2Tag()) {
+        	ID3v2 id3v2Tag = mp3file.getId3v2Tag();
+            byte[] imageData = id3v2Tag.getAlbumImage();
+            if (imageData != null) {
+				String mimeType = id3v2Tag.getAlbumImageMimeType();
+				System.out.println("Mime type: " + mimeType);
+				
+				RandomAccessFile file = new RandomAccessFile("album-artwork", "rw");
+				file.write(imageData);
+				file.close();
             }
         }
+	}
+
+    public String getdata() throws UnsupportedTagException, InvalidDataException, IOException, NotSupportedException {
+        choseFile();
+        return title+"\t"+artist +"\t"+album+"\t"+year; 
     }
-    
-    /**
-     * Clean characters of URL
-     *
-     * @param uri
-     */
-    private static String cleanURL(String url) {
-        url = url.replace("\\", "/");
-        url = url.replaceAll(" ", "%20");
-        url = url.replace("[", "%5B");
-        url = url.replace("]", "%5D");
-        return url;
-    }
-    
 }
+    
 

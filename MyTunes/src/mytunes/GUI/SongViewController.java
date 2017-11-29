@@ -5,7 +5,11 @@
  */
 package mytunes.GUI;
 
+import com.mpatric.mp3agic.InvalidDataException;
+import com.mpatric.mp3agic.NotSupportedException;
+import com.mpatric.mp3agic.UnsupportedTagException;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleStringProperty;
@@ -17,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import mytunes.BE.TrackUtility;
 import mytunes.BE.myTunes;
 
 /**
@@ -66,29 +71,12 @@ public class SongViewController implements Initializable {
     }
 
     @FXML
-    private void chooseDirectory(ActionEvent event) {
-          if (isInputValid()) {
-            DirectoryChooser chooser = new DirectoryChooser();
-            chooser.setTitle("Select your Music");
-            File selectedDirectory = chooser.showDialog(dialogStage);
-            trackList.setPath(new SimpleStringProperty(selectedDirectory.toString()));
-            okClicked = true;
-            dialogStage.close();
+    private void chooseDirectory(ActionEvent event) throws UnsupportedTagException, InvalidDataException, IOException, NotSupportedException {
+         TrackUtility  choser= new TrackUtility();
+        System.out.println(  choser.getdata());
     }
     }
 
-    private boolean isInputValid() {
-        String errorMessage = "";
-        
-        if (errorMessage.length() == 0) {
-            return true;
-        } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Missing input");
-            alert.setHeaderText(null);
-            alert.setContentText(errorMessage);
-            alert.showAndWait();
-            return false;
-        }
-  }
-}
+    
+  
+
