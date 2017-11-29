@@ -7,6 +7,7 @@ package mytunes.BE;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.property.StringProperty;
 import mytunes.GUI.AddSongController;
 
 /**
@@ -20,6 +21,9 @@ public class myTunes {
     private String artist;
     private String album;
     private int year;
+    private StringProperty path;
+    private StringProperty name;
+
     
     
     public String getSongName()
@@ -60,7 +64,26 @@ public class myTunes {
         this.year = year;
            
     }
+    public StringProperty getPath() {
+        return path;
+    }
+    
+    public void setPath(StringProperty path) {
+        this.path = path;
+    }
 
+
+    public StringProperty getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(StringProperty name) {
+        this.name = name;
+    }
+    
     @Override
     public String toString() {
         return "myTunes{" + "songName=" + songName + ", artist=" + artist + ", album=" + album + ", year=" + year + '}';
