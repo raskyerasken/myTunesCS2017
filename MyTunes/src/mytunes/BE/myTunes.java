@@ -84,6 +84,11 @@ public class myTunes {
         this.name = name;
     }
     
+   public String getValue()
+   {
+       return getValue();
+   }
+    
     @Override
     public String toString() {
         return "myTunes{" + "songName=" + songName + ", artist=" + artist + ", album=" + album + ", year=" + year + '}';

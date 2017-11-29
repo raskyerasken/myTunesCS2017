@@ -32,9 +32,9 @@ public class TrackUtility {
      * @param trackTable
      * @return List
      */
-    public static ObservableList<Track> getAll(TrackList trackList, TableView trackTable) {
+    public static ObservableList<myTunes> getAll(myTunes trackList, TableView trackTable) {
         
-        ObservableList<Track> tracks = FXCollections.observableArrayList();
+        ObservableList<myTunes> tracks = FXCollections.observableArrayList();
         
         File dir = new File(trackList.getPath().getValue());
         if (!dir.exists() || !dir.isDirectory()) {
@@ -54,23 +54,21 @@ public class TrackUtility {
             String cleanURL = cleanURL(fileURL);
             String mediaURL = "file:///" + cleanURL;
             
-            Track track = new Track();
+            myTunes track = new myTunes();
             Media media = new Media(mediaURL);
             media.getMetadata().addListener((MapChangeListener.Change<? extends String,
                     ? extends Object> ch) -> {
                 if (ch.wasAdded()) {
-                    handleMetadata(ch.getKey(), ch.getValueAdded(), (Track) track);
+                    handleMetadata(ch.getKey(), ch.getValueAdded(), (myTunes) track);
                     if(track.getArtist() == null || track.getArtist().getValue().equals("")) {
-                        track.setArtist(new SimpleStringProperty("Unknown"));
+                        track.setArtist(new String("Unknown"));
                     }
-                    if(track.getAlbum() == null || track.getAlbum().getValue().equals("")) {
-                        track.setAlbum(new SimpleStringProperty("Unknown"));
+                    if(track.getAlbum() == null || track.getAlbum().getValue.equals("")) {
+                        track.setAlbum(new String("Unknown"));
                     }
-                    if(track.getYear() == null || track.getYear().getValue().equals("")) {
-                        track.setYear(new SimpleStringProperty("Unknown"));
-                    }
-                    if(track.getTitle() == null || track.getTitle().getValue().equals("")) {
-                        track.setTitle(new SimpleStringProperty(track.getFileName().getValue().replace(".mp3", "")));
+                   
+                    if(track.getSongName() == null || track.getSongName().getValue().equals("")) {
+                        track.setSongName(new String(track.getSongName().getValue().replace(".mp3", "")));
                     }
                     TrackUtil.refreshTable(trackTable);
                 }
@@ -90,35 +88,28 @@ public class TrackUtility {
      * @param value
      * @param track
      */
-    public static void handleMetadata(String key, Object value, Track track) {
+    public static void handleMetadata(String key, Object value, myTunes track) {
         //System.out.println(key + " - (" + value.toString() + ")");
         if(key.equals("album")) {
             if(value.toString().equals("")) {
-                track.setAlbum(new SimpleStringProperty("Unknown"));
+                track.setAlbum(new String("Unknown"));
             } else {
-                track.setAlbum(new SimpleStringProperty(value.toString()));
+                track.setAlbum(new String(value.toString()));
             }
         } else if(key.equals("artist") || key.equals("album artist")) {
             if(value.toString().equals("")) {
-                track.setArtist(new SimpleStringProperty("Unknown"));
+                track.setArtist(new String("Unknown"));
             } else {
-                track.setArtist(new SimpleStringProperty(value.toString()));
+                track.setArtist(new String(value.toString()));
             }
-        } else if(key.equals("title")) {
+        } else if(key.equals("SongName")) {
             if(value.toString().equals("")) {
-                track.setTitle(new SimpleStringProperty(track.getFileName().getValue().replace(".mp3", "")));
+                track.setSongName(new String(track.getSongName().replace(".mp3", "")));
             } else {
-                track.setTitle(new SimpleStringProperty(value.toString()));
+                track.setSongName(new String(value.toString()));
             }
-        } else if(key.equals("year")) {
-            if(value.toString().equals("")) {
-                track.setYear(new SimpleStringProperty("Unknown"));
-            } else {
-                track.setYear(new SimpleStringProperty(value.toString()));
-            }
-        } else if(key.equals("image")) {
-            track.setImage((Image) value);
-        }
+        } 
+       
     }
     
     /**
@@ -150,4 +141,4 @@ public class TrackUtility {
     }
     
 }
-}
+
