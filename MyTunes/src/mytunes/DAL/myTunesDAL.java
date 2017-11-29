@@ -15,6 +15,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -57,10 +59,19 @@ public class myTunesDAL {
         return allSongs;
     }
     
-    public void remove(AddSongController selectedSong)
+    public void remove(myTunes selectedSong)
     {
+        try (Connection con = cm.getConnection()) {
         String sql = "DELETE FROM Songs WHERE id=?";
         
+        PreparedStatement pstmt = con.prepareStatement(sql);
+        pstmt.setString(1, selectedSong.getSongName());
+        pstmt.execute();
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(myTunesDAL.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
     }
     
     public void add (myTunes allSongs) throws SQLException
@@ -81,12 +92,11 @@ public class myTunesDAL {
             int affected = pstmt.executeUpdate();
             if (affected<1)
                     throw new SQLException("Song could not be added");
-            
-            
-                    
-                    
-                  
-    }
+           
+                 }
+    catch (SQLException ex) {
+        Logger.getLogger(myTunesDAL.class.getName()).log(Level.SEVERE, null, ex);
+    }     
   }
 }
     
