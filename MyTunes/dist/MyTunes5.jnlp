@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="MyTunes5.jar" size="6109758" download="eager" />
+    <jar href="MyTunes5.jar" size="6109924" download="eager" />
     <jar href="lib\mp3agic-0.8.3.jar" size="66111" download="eager" />
     <jar href="lib\sqljdbc42.jar" size="891490" download="eager" />
   </resources>

@@ -27,6 +27,7 @@ public class TrackUtility {
     String artist;
     String album;
     String year ; 
+    String URLAdressSong;
     /**
      * Get all tracklists stored in user preferences
      *
@@ -47,7 +48,7 @@ if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 } else {
   System.out.println("No Selection ");
 }
-        
+        URLAdressSong=""+chooser.getSelectedFile();
         Mp3File mp3file = new Mp3File(chooser.getSelectedFile());
 
         System.out.println("Length of this mp3 is: " + mp3file.getLengthInSeconds() + " seconds");
@@ -85,13 +86,13 @@ if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
 
     public String[] getdata() throws UnsupportedTagException, InvalidDataException, IOException, NotSupportedException {
         choseFile();
-        String[] songData= {artist,title,album,year};
+        String[] songData= {artist,title,album,year,URLAdressSong};
         return songData;
     }
 
     @Override
     public String toString() {
-        return "TrackUtility{" + "title=" + title + ", artist=" + artist + ", album=" + album + ", year=" + year + '}';
+        return "TrackUtility{" + "title=" + title + ", artist=" + artist + ", album=" + album + ", year=" + year +",URLAdressSong"+URLAdressSong+ '}';
     }
 }
     
